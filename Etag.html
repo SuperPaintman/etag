@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta id="repository-name" content="">
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="js/doc.js"></script>
+  <title>Etag - </title>
+</head>
+<body>
+
+<div id="types-list">
+  <div id="search-box">
+    <input type="search" id="search-input" placeholder="Search...">
+  </div>
+
+  <ul>
+    <li><a href="index.html">README</a></li>
+  </ul>
+
+  <ul>
+  
+  <li class=" current" data-id="/Etag" data-name="etag">
+      <a href="Etag.html">Etag</a>
+      
+    </li>
+  
+</ul>
+
+</div>
+
+<div id="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> Etag
+
+</h1>
+
+
+
+
+
+
+
+
+
+
+
+  <h2>Extended Modules</h2>
+  <ul class="other-types-list">
+  
+    <li class="other-type"><a href="Etag.html">Etag</a></li>
+  
+  </ul>
+
+
+
+
+
+
+
+
+  <h2>Defined in:</h2>
+  
+
+
+
+  
+    <h2>Constant Summary</h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.1.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
+
+
+
+  <h2>Instance Method Summary</h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#etag%28entity%3AString%2C%2A%2Cweak%3Dfalse%2Cforce%3Dfalse%29%3AString-instance-method" class="signature"><strong>#etag</strong>(entity : String, *, weak = <span class="n">false</span>, force = <span class="n">false</span>) : String</a>
+        
+          <div class="summary"><p>Generate tag based on file entity</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#etag%28stat%3AFile%3A%3AStat%2C%2A%2Cweak%3Dfalse%29%3AString-instance-method" class="signature"><strong>#etag</strong>(stat : File::Stat, *, weak = <span class="n">false</span>) : String</a>
+        
+          <div class="summary"><p>Generate tag based on file stat</p></div>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+  <h2>Instance Method Detail</h2>
+  
+    <div class="entry-detail" id="etag&#40;entity:String,*,weak&#61;false,force&#61;false&#41;:String-instance-method">
+      <div class="signature">
+        
+        def <strong>etag</strong>(entity : String, *, weak = <span class="n">false</span>, force = <span class="n">false</span>) : String
+
+        <a class="method-permalink" href="#etag%28entity%3AString%2C%2A%2Cweak%3Dfalse%2Cforce%3Dfalse%29%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Generate tag based on file entity</p>
+
+<pre><code><span class="t">Etag</span>.etag <span class="t">File</span>.read(<span class="s">&quot;./README.md&quot;</span>)
+<span class="c"># &#61;&gt; &quot;\&quot;a19-UDMQYeZ&#43;VMk&#43;2Fv11x6Mu/JkktE\&quot;&quot;</span>
+
+<span class="c"># or weak</span>
+
+<span class="t">Etag</span>.etag <span class="t">File</span>.read(<span class="s">&quot;./README.md&quot;</span>)
+<span class="c"># &#61;&gt; &quot;W/\&quot;a19-UDMQYeZ&#43;VMk&#43;2Fv11x6Mu/JkktE\&quot;&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="etag&#40;stat:File::Stat,*,weak&#61;false&#41;:String-instance-method">
+      <div class="signature">
+        
+        def <strong>etag</strong>(stat : File::Stat, *, weak = <span class="n">false</span>) : String
+
+        <a class="method-permalink" href="#etag%28stat%3AFile%3A%3AStat%2C%2A%2Cweak%3Dfalse%29%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc"><p>Generate tag based on file stat</p>
+
+<pre><code><span class="t">Etag</span>.etag <span class="t">File</span>.lstat(<span class="s">&quot;./README.md&quot;</span>)
+<span class="c"># &#61;&gt; &quot;\&quot;a19-582e0568&quot;\&quot;</span>
+
+<span class="c"># or weak</span>
+
+<span class="t">Etag</span>.etag <span class="t">File</span>.lstat(<span class="s">&quot;./README.md&quot;</span>, weak: <span class="n">true</span>)
+<span class="c"># &#61;&gt; &quot;W/\&quot;a19-582e0568&quot;\&quot;</span></code></pre></div>
+      
+      <br/>
+      <div>
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
