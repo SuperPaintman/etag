@@ -1,0 +1,10 @@
+name: etag
+version: 0.1.0
+
+authors:
+  - SuperPaintman <SuperPaintmanDeveloper@gmail.com>
+
+description: |
+  Library to generate HTTP ETags (*RFC 7232*).
+
+license: MIT
