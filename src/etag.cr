@@ -15,16 +15,16 @@ module Etag
   # Generate tag based on file stat
   #
   # ```
-  # Etag.etag File.lstat("./README.md")
+  # Etag.etag File.info("./README.md")
   # # => "\"a19-582e0568"\"
   #
   # # or weak
   #
-  # Etag.etag File.lstat("./README.md", weak: true)
+  # Etag.etag(File.info("./README.md") weak: true)
   # # => "W/\"a19-582e0568"\"
   # ```
-  def etag(stat : File::Stat, *, weak = false) : String
-    mtime_hex = stat.mtime.epoch.to_s(16)
+  def etag(stat : File::Info, *, weak = false) : String
+    mtime_hex = stat.modification_time.to_unix.to_s(16)
     size_hex = stat.size.to_s(16)
 
     "#{weak ? "W/" : ""}\"#{size_hex}-#{mtime_hex}\""
@@ -38,7 +38,7 @@ module Etag
   #
   # # or weak
   #
-  # Etag.etag File.read("./README.md")
+  # Etag.etag(File.read("./README.md"))
   # # => "W/\"a19-UDMQYeZ+VMk+2Fv11x6Mu/JkktE\""
   # ```
   def etag(entity : String, *, weak = false, force = false) : String
