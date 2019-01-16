@@ -12,12 +12,12 @@ describe Etag do
 
     it "should generate a strong ETag" do
       stat = File.info("#{__DIR__}/fixtures/lorem.txt")
-      Etag.etag(stat).should eq "\"c85-5c3f4d9e\""
+      Etag.etag(stat).should match /\"c85-[a-z0-9]{8}\"/
     end
 
     it "should generate a weak ETag" do
       stat = File.info("#{__DIR__}/fixtures/lorem.txt")
-      Etag.etag(stat, weak: true).should eq "W/\"c85-5c3f4d9e\""
+      Etag.etag(stat, weak: true).should match /W\/\"c85-[a-z0-9]{8}\"/
     end
   end
 
