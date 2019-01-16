@@ -4,20 +4,20 @@ describe Etag do
   describe ".etag(stat : File::Stat)" do
     it "should not raise an error" do
       begin
-        Etag.etag File.lstat("#{__DIR__}/fixtures/lorem.txt")
+        Etag.etag File.info("#{__DIR__}/fixtures/lorem.txt")
       rescue err
         err.should be_nil
       end
     end
 
     it "should generate a strong ETag" do
-      stat = File.lstat("#{__DIR__}/fixtures/lorem.txt")
-      Etag.etag(stat).should eq "\"c85-582e119c\""
+      stat = File.info("#{__DIR__}/fixtures/lorem.txt")
+      Etag.etag(stat).should eq "\"c85-5c3f4d9e\""
     end
 
     it "should generate a weak ETag" do
-      stat = File.lstat("#{__DIR__}/fixtures/lorem.txt")
-      Etag.etag(stat, weak: true).should eq "W/\"c85-582e119c\""
+      stat = File.info("#{__DIR__}/fixtures/lorem.txt")
+      Etag.etag(stat, weak: true).should eq "W/\"c85-5c3f4d9e\""
     end
   end
 
